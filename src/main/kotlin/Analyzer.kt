@@ -2,6 +2,9 @@ import java.text.SimpleDateFormat
 
 
 class Analyzer {
+    fun getTop10App(list: List<App>):List<String>{
+        var counter = 0
+        val topTen = mutableListOf<String>()
     fun medicalAppsPercentage(list:List<App>): Double {
         if (list.isEmpty())return 0.0
         var counter=0.0
@@ -11,6 +14,15 @@ class Analyzer {
         return String.format("%.2f",counter/list.size*100).toDouble()
     }
 
+        run breaking@ {
+            list.sortedByDescending { it.installs }.forEach {
+                topTen.add(it.appName)
+                counter++
+                if (counter == 10) return@breaking
+            }
+        }
+        return topTen
+    }
     fun getLargest10App(list: List<App>):List<String>{
         val newMap = mutableMapOf<String,Double>()
 
