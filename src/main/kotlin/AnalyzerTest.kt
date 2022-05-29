@@ -475,4 +475,3 @@ internal class AnalyzerTest {
             assertEquals(0.0,checkMedicalAppsPercentage)
         }
 
-    }
