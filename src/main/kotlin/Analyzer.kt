@@ -1,6 +1,19 @@
 import java.text.SimpleDateFormat
 
 class Analyzer {
+    fun medicalAppsPercentage(list:List<App>): Double {
+        /**
+         *it was solved in two ways
+         */
+        //use filter list
+
+//        return if (list.isEmpty()) {
+//            0.0
+//        } else {
+//            var listOfMedical = list.filter { it.category == "Medical" }.size
+//            String.format("%.2f", listOfMedical.toDouble() / list.size * 100).toDouble()
+//        }
+//    }
 
     fun getOldestApp(list: List<App>): String {
         val newMap = mutableMapOf<String,Long>()
@@ -13,5 +26,14 @@ class Analyzer {
         }
         val map = newMap.toList().sortedBy { (_, value) -> value}.toMap()
         return map.keys.toList()[0]
+    }
+//use forEach
+
+        if (list.isEmpty())return 0.0
+        var counter=0.0
+        list.forEach {
+            if (it.category=="Medical" )counter++
+        }
+        return String.format("%.2f",counter/list.size*100).toDouble()
     }
 }
