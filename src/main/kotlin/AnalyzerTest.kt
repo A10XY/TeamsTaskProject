@@ -4,10 +4,10 @@ import org.junit.jupiter.api.TestInstance
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 internal class AnalyzerTest {
-    lateinit var objectOfAnalyzer:Analyzer
+    lateinit var objectOfAnalyzer: Analyzer
     @BeforeAll
     fun setup(){
-        objectOfAnalyzer =Analyzer()
+        objectOfAnalyzer = Analyzer()
     }
     @org.junit.jupiter.api.Test
     fun getOldestApp_sendListCorret_ReturnOldestAppFromList() {
@@ -38,14 +38,7 @@ internal class AnalyzerTest {
         //then
         assertEquals("",checkgetOldestApp)
     }
-}
-@TestInstance(TestInstance.Lifecycle.PER_CLASS)
-internal class AnalyzerTest {
-        lateinit var objectOfAnalyzer:Analyzer
-        @BeforeAll
-        fun setup(){
-            objectOfAnalyzer =Analyzer()
-        }
+
         @org.junit.jupiter.api.Test
         fun medicalAppsPercentage_sendCloneOfFileCsv_ReturnResultCorrect() {
             //given
